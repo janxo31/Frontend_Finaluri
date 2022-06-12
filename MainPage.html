@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="MainPageStyle.css" rel="stylesheet" />
+  </head>
+  <body>
+
+      
+      
+    
+        <div class="container">
+            <div id="Centralslide">
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                      
+                      <img src="img/S1.jpg" style="width:100%">
+                      <div class="textunder">Chocolate Cake</div>
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      
+                      <img src="img/S2.jpg" style="width:100%">
+                      <div class="textunder">White Chocolate Cake</div>
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      
+                      <img src="img/S3.jpg" style="width:100%">
+                      <div class="textunder">Fruit Cake</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                       
+                        <img src="img/S4.jpg" style="width:100%">
+                        <div class="textunder">Wedding Cake</div>
+                      </div>
+
+                      <div class="mySlides fade">
+                        
+                        <img src="img/S5.jpg" style="width:100%">
+                        <div class="textunder">Milk Chocolate Cake</div>
+                      </div>
+
+                      
+                    
+                    </div>
+                    <br>
+                    
+                    <div style="text-align:center">
+                      <span class="dot" onclick="CurrentSlide(1)"></span> 
+                      <span class="dot" onclick="CurrentSlide(2)"></span> 
+                      <span class="dot" onclick="CurrentSlide(3)"></span>
+                      <span class="dot" onclick="CurrentSlide(4)"></span> 
+                      <span class="dot" onclick="CurrentSlide(5)"></span>  
+                    </div>
+                    
+                    <script>
+                    let slideIndex = 0;
+                    
+                    showSlides();
+
+                    
+                    
+                    function showSlides() {
+                      let i;
+                      let slides = document.getElementsByClassName("mySlides");
+                      let dots = document.getElementsByClassName("dot");
+                    
+                      for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";  
+                      }
+                      slideIndex ++;
+                      if (slideIndex > 5) {slideIndex = 1}    
+                      for (i = 0; i < 5; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                      }
+                      slides[slideIndex-1].style.display = "block";  
+                      dots[slideIndex-1].className += " active";
+                      setTimeout(showSlides, 5000); 
+                    }
+                    function CurrentSlide(n){
+                        showSlides(slideIndex = n-1)
+                        
+                    }
+
+
+            
+                        
+                    </script>
+
+                </div>
+        
+            <div id="Authorization">
+                <li><a href="LoginPage.html" id="Reg">Login</a></li>
+                <li><a href="Regpage.html" id="Reg">Register</a></li>
+            </div>
+            <div id="Languages">
+                <div id="EN">EN</div>
+                <div id="GE">GE</div>
+             </div>
+            <div id="Menu">
+              <li><a href="MainPage.html" id="Home">Home</a></li>
+              <li><a href="InfoPage.html" id="Info">Info</a></li>
+              <li><a href="ContactAdressPage.html" id="Info">Contact/Adress</a></li>
+              <li><a href="CakesPage.html" id="Info">About Cakes</a></li>
+              <li><a href="RecipePage.html" id="Info">Recipe</a></li>
+            
+            
+               
+             </div>
+    </div>
+  </body>
+</html>

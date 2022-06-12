@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<link href="RegpageStyle.css" rel="stylesheet" />
+    </head>
+</style>
+<body>
+
+
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="text" id="EnteredTypedMail"placeholder="Enter your Email" name="email" required>
+
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" id="Pswrd" placeholder="Enter your Password" name="password" required>
+
+      <label for="psw-repeat"><b>confirm Password</b></label>
+      <input type="password" id="PswrdConfirmed" placeholder="Confirm Password" name="password-confirm" required>
+
+      <label for="Username"><b>User Name</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="Country"><b>Country</b></label>
+      <input type="text" placeholder="Enter your Country" name="country" required>
+
+      <label for="city"><b>City</b></label>
+      <input type="text" placeholder="Enter your City" name="city" required>
+
+      <label for="NUM"><b>Mobile Num</b></label>
+      <input type="text" placeholder="Enter your Mobile Number" name="mobile-number" required>
+
+      <h1 id="DaterTimer">Registration time is:  <span id="DateTime"></span></h1>
+
+      <h1 id="ErrorLog">Cheking if Email is good:  <span id="ErrorLogReg"></span></h1>
+
+      <h1 id="ErrorLog">Cheking if Passwords match:  <span id="ErrorLogPasswordMatch"></span></h1>
+
+      <h1 id="ErrorLog">Cheking password weaknes:  <span id="ErrorLogRegPasswordWeakness"></span></h1>
+      
+
+    
+
+
+      
+
+      <div class="clearfix">
+        <button type="button" onclick="location.href='MainPage.html';" class="cancelbtn">Cancel</button>
+        
+        <button type="submit" class="signupbtn" onclick="EmailChecking(),VerifyPasswords(),passwordstrenght()">Register Account</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  GettingCurrentDate();
+  
+
+  function GettingCurrentDate(){
+    var Nowdays = new Date();
+    var YearMonthDay = Nowdays.getFullYear()+'-'+(Nowdays.getMonth()+1)+'-'+Nowdays.getDate();
+    document.getElementById("DateTime").innerHTML = Nowdays;
+
+  }
+
+  
+
+  function EmailChecking(){
+    var EnteredEmail = document.getElementById("EnteredTypedMail").value;
+
+    var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+
+    if(EnteredEmail.match(pattern)){
+      document.getElementById("ErrorLogReg").innerHTML = "Email is correct";
+      
+      return true
+
+    }
+    else{
+      document.getElementById("ErrorLogReg").innerHTML = "Email is not correct";
+
+      return false
+    }
+
+  }
+
+  function VerifyPasswords(){
+    var p1 = document.getElementById("Pswrd").value;  
+    var p2 = document.getElementById("PswrdConfirmed").value;
+    if(p1 != p2){
+      document.getElementById("ErrorLogPasswordMatch").innerHTML = "Passwords dont match";
+      return true
+
+    }
+    else{
+      document.getElementById("ErrorLogPasswordMatch").innerHTML = "Passwords is matching";
+      return false
+
+    }
+  }
+
+  function passwordstrenght(){
+    var weakpass = /[a-z]/;
+    var midweakpass = /[0-9]/;
+    var strongpass = /[A-Z]/;
+    var verystrongpas = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
+
+    var passwordforcheck = document.getElementById("Pswrd").value;
+
+
+    if(passwordforcheck.match(verystrongpas)){
+      document.getElementById("ErrorLogRegPasswordWeakness").innerHTML = "Password is verystrong";
+    }
+    else if(passwordforcheck.match(strongpass)){
+      document.getElementById("ErrorLogRegPasswordWeakness").innerHTML = "Password is strong";
+
+    }
+
+    else if(passwordforcheck.match(midweakpass)){
+      document.getElementById("ErrorLogRegPasswordWeakness").innerHTML = "Password is midstrong";
+
+    }
+
+    else if(passwordforcheck.match(weakpass)){
+      document.getElementById("ErrorLogRegPasswordWeakness").innerHTML = "Password is weak";
+
+    }
+
+    else{
+      return false
+    }
+    
+
+    
+      
+    
+
+
+  }
+
+</script>
+
+</body>
+</html>

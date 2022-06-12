@@ -1,0 +1,109 @@
+.container {  
+    display: grid;
+    background-image: url(img/BakeryBackground.jpg);
+    background-size: cover;
+    background-position: center; 
+    grid-template-rows: 0.2fr 1.8fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row dense;
+    grid-template-areas:
+      "UpperArea"
+      "LowerArea";
+  }
+  
+
+  #Languages {
+    display: grid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "English"
+      "Georgian";
+    grid-area: Languages;
+  }
+
+  #EN{
+    background-color: rgba(0, 0, 255, 0.527);
+    color: white;
+    font-size: 100px;
+}
+
+#GE{
+  background-color: rgba(255, 0, 0, 0.445);
+  color: white;
+  font-size: 100px;
+}
+
+
+
+
+  #LowerTexts {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". .";
+    grid-area: LowerArea;
+    font-size: 40px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(240, 248, 255, 0.589);
+    border-radius: 20px;
+  }
+  
+  #Satauri {  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ".";
+    grid-area: UpperArea;
+    font-size: 40px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 235, 205, 0.486);
+  }
+
+  #cancelbtn {
+    padding: 14px 10px;
+    background-color: #f44336;
+  }
+  
+ 
+ 
+  
+  
+  
+  html, body , .container {
+    height: 100%;
+    margin: 0;
+  }
+  
+  
+  
+  .container * {
+    border: 1px solid rgba(59, 15, 255, 0.226);
+    position: relative;
+  }
+  
+  .container *:after {
+    content:attr(class);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
